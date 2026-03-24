@@ -1,0 +1,16 @@
+# 1. Base: Imagen oficial ligera
+FROM python:3.12-slim
+
+# 2. Entorno: Directorio de trabajo
+WORKDIR /app
+
+#archivo de configuración de dependencias
+COPY pyproject.toml .
+# 3. Dependencias: Instalar uv y las dependencias
+RUN uv pip install --system --no-cache .
+
+# 4. Código: Copiar el resto de los archivos .py
+
+COPY . .
+
+CMD ["python", "main.py"]
