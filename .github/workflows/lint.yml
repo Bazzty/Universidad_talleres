@@ -3,8 +3,12 @@ name: Lint
 on:
   push:
     branches: [main]
+    paths:
+      - 'taller_08/**'
   pull_request:
     branches: [main]
+    paths:
+      - 'taller_08/**'
 
 jobs:
   lint:

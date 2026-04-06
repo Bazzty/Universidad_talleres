@@ -1,0 +1,31 @@
+name: Taller Evaluado 04 — CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'taller_evaluado_04/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'taller_evaluado_04/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests with pytest
+        run: pytest
+        working-directory: taller_evaluado_04
